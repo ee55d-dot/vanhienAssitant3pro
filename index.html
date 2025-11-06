@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VHUU AI Student Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .gradient-sweep {
+        background-size: 200% 100%;
+        animation: gradient-sweep 3s ease infinite;
+      }
+      @keyframes gradient-sweep {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+
+      /* New styles for the animated background */
+      .animated-background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -10;
+        background-color: #020617; /* A very dark blue, almost black */
+        overflow: hidden;
+      }
+
+      .animated-background-container::before,
+      .animated-background-container::after {
+        content: '';
+        position: absolute;
+        width: 150vmax;
+        height: 150vmax;
+        top: 50%;
+        left: 50%;
+        transform-origin: center center;
+        background-repeat: no-repeat;
+        filter: blur(100px);
+        will-change: transform;
+      }
+
+      .animated-background-container::before {
+        background-image: radial-gradient(circle, #a855f7, transparent 50%);
+        animation: move1 25s linear infinite;
+        opacity: 0.3;
+      }
+
+      .animated-background-container::after {
+        background-image: radial-gradient(circle, #6366f1, transparent 50%);
+        animation: move2 20s linear infinite;
+        opacity: 0.4;
+      }
+      
+      @keyframes move1 {
+        0% { transform: translate(-50%, -50%) rotate(0deg) translateX(20%); }
+        25% { transform: translate(-50%, -50%) rotate(90deg) translateX(-20%); }
+        50% { transform: translate(-50%, -50%) rotate(180deg) translateX(20%); }
+        75% { transform: translate(-50%, -50%) rotate(270deg) translateX(-20%); }
+        100% { transform: translate(-50%, -50%) rotate(360deg) translateX(20%); }
+      }
+
+      @keyframes move2 {
+        0% { transform: translate(-50%, -50%) rotate(0deg) translateX(-25%); }
+        50% { transform: translate(-50%, -50%) rotate(180deg) translateX(25%); }
+        100% { transform: translate(-50%, -50%) rotate(360deg) translateX(-25%); }
+      }
+      
+      /* Cinematic Card Shimmer Effect */
+      .card-shimmer {
+        position: relative;
+        overflow: hidden;
+      }
+      .card-shimmer::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 100%;
+        height: 100%;
+        transform: skewX(-25deg);
+        background: linear-gradient(
+          to right,
+          transparent 0%,
+          rgba(255, 255, 255, 0.1) 45%,
+          rgba(255, 255, 255, 0.1) 55%,
+          transparent 100%
+        );
+        animation: shimmer-once 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        animation-delay: 0.3s;
+      }
+       .dark .card-shimmer::after {
+        background: linear-gradient(
+          to right,
+          transparent 0%,
+          rgba(255, 255, 255, 0.04) 45%,
+          rgba(255, 255, 255, 0.04) 55%,
+          transparent 100%
+        );
+      }
+      @keyframes shimmer-once {
+        100% {
+          left: 150%;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.552.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.3.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
